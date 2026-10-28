@@ -3,12 +3,7 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, Sparkles, ChevronDown } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
-import { services, WHATSAPP_URL, type Category } from "@/lib/services";
-import hero from "@/assets/hero.jpg";
-import fibra from "@/assets/fibra.jpg";
-import spa from "@/assets/spa.jpg";
-import alisado from "@/assets/alisado.jpg";
-import cuero from "@/assets/cuero.jpg";
+import { services, WHATSAPP_URL, imageUrl } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -23,17 +18,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const images: Record<Category, string> = {
-  "Análisis": cuero,
-  "Cuero cabelludo": cuero,
-  "Estimulación": cuero,
-  "Fibra capilar": fibra,
-  "Hebra duradera": fibra,
-  "Alisados": alisado,
-  "Retoques": alisado,
-  "Head Spa": spa,
-};
 
 const categories = ["Todos", ...Array.from(new Set(services.map((s) => s.category)))] as const;
 
@@ -58,12 +42,12 @@ function Index() {
         <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 md:grid-cols-2">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <p className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-[0.35em] text-muted-foreground">
-              <Sparkles className="h-4 w-4 text-gold" /> Centro de salud capilar
+              <Sparkles className="h-4 w-4 text-gold" /> Catálogo de servicios
             </p>
             <h1 className="font-serif text-5xl font-semibold leading-[1.05] md:text-7xl">
-              Lyos <span className="text-gradient-gold">Profesional</span>
+              Centro de <span className="text-gradient-gold">salud capilar</span>
             </h1>
-            <p className="mt-3 font-display text-xl italic text-muted-foreground">by Tina Belleza</p>
+            <p className="mt-3 font-display text-xl italic text-muted-foreground">Lyos Profesional by Tina Belleza</p>
             <p className="mt-6 max-w-md text-base text-muted-foreground">Especialistas capilares de alto nivel, para un cabello sano y radiante.</p>
             <a
               href="#catalogo"
@@ -79,7 +63,7 @@ function Index() {
             className="relative mx-auto w-full max-w-md"
           >
             <div className="absolute -inset-4 rounded-[2.5rem] border border-gold/30" />
-            <img src={hero} alt="Cabello sano y brillante" width={1280} height={1280} className="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-gold-lg" />
+            <img src={imageUrl("hero")} alt="Cristina Gutiérrez y su equipo de Lyos Profesional" width={1280} height={1280} className="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-gold-lg" />
           </motion.div>
         </div>
       </section>
@@ -109,7 +93,7 @@ function Index() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {list.map((s, i) => (
-              <ServiceCard key={s.title} service={s} image={images[s.category]} index={i} />
+              <ServiceCard key={s.title} service={s} image={imageUrl(s.image)} index={i} />
             ))}
           </div>
 
