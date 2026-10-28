@@ -60,10 +60,9 @@ function Index() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative mx-auto w-full max-w-md"
+            className="relative mx-auto w-full max-w-lg"
           >
-            <div className="absolute -inset-4 rounded-[2.5rem] border border-gold/30" />
-            <img src={imageUrl("hero")} alt="Cristina Gutiérrez y su equipo de Lyos Profesional" width={1280} height={1280} className="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-gold-lg" />
+            <img src={imageUrl("hero")} alt="Cristina Gutiérrez y su equipo de Lyos Profesional" width={850} height={850} className="relative block h-auto w-full object-contain" />
           </motion.div>
         </div>
       </section>
