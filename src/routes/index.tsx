@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MessageCircle, Sparkles, ChevronDown } from "lucide-react";
 import { ServiceCard } from "@/components/ServiceCard";
 import { services, WHATSAPP_URL, imageUrl } from "@/lib/services";
+import promoAsset from "@/assets/promo-alisados.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,6 +37,44 @@ function Index() {
 
   return (
     <main className="overflow-hidden">
+      {/* PROMO DESTACADO */}
+      <section className="relative px-6 pb-10 pt-16">
+        <div className="bg-glow-gold pointer-events-none absolute left-1/2 top-0 h-[560px] w-[560px] -translate-x-1/2 rounded-full" />
+        <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 md:grid-cols-[minmax(0,400px)_1fr]">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="mx-auto w-full max-w-sm">
+            <img
+              src={promoAsset.url}
+              alt="Promo de lanzamiento: alisado KoreaLiss o Bio Intense con shampoo de obsequio"
+              width={853}
+              height={1280}
+              className="block h-auto w-full object-contain"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-center md:text-left"
+          >
+            <p className="text-xs uppercase tracking-[0.35em] text-gold">Promo de lanzamiento</p>
+            <h2 className="mt-4 font-serif text-4xl font-semibold leading-tight md:text-5xl">
+              Alisado <span className="text-gradient-gold">KoreaLiss</span> o Bio Intense
+            </h2>
+            <p className="mx-auto mt-5 max-w-md text-base text-muted-foreground md:mx-0">
+              Y lleva obsequio: shampoo de hidratación Korea Liss o shampoo de limpieza profunda LYOS.
+            </p>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gradient-gold mt-8 inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-semibold uppercase tracking-widest text-primary-foreground shadow-gold-lg transition-transform hover:scale-105"
+            >
+              Aprovechar la promo <ChevronDown className="h-4 w-4" />
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       {/* HERO */}
       <section className="relative flex min-h-screen items-center px-6 py-20">
         <div className="bg-glow-gold animate-orb pointer-events-none absolute left-1/2 top-10 h-[700px] w-[700px] rounded-full" />
