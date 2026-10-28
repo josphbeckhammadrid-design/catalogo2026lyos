@@ -5,7 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-serif: "Cinzel", "Playfair Display", serif;
+  --font-serif: "Poppins", "Montserrat", sans-serif;
   --font-display: "Playfair Display", serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
