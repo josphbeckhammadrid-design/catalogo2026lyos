@@ -96,6 +96,11 @@
   html { scroll-behavior: smooth; }
   body {
     background-color: var(--color-background);
+    background-image: url("/__l5e/assets-v1/52583cd1-70cb-46cf-9992-ce0cd1b15eb2/fondo-dorado.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
   }
